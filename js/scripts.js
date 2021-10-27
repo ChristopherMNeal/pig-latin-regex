@@ -1,4 +1,20 @@
 function pigLatinTranslator(word) {
+  let pigLatin = ""
+  let firstVowelRegex = new RegExp("^[aeiou]", "i");
+  let firstConsanantRegex = new RegExp("^[^aeiou]+", "i")
+  if (word.match(firstVowelRegex)) {
+    pigLatin = word + "-way"
+  } else {
+    let consonants = word.match(firstConsanantRegex)
+    let tempWord = word.replace(firstConsanantRegex, "")
+    pigLatin = tempWord + "-" + consonants + "ay"
+  }
+  return pigLatin
+}
+
+
+/*
+function pigLatinTranslator(word) {
   const vowelArray = ["a", "A", "e", "E", "i", "I", "o", "O", "u", "U"];
   const punctuation = [".", "!", ",", '"', "'", "#", "(", ")", "?"]
   let pigLatinString = "";
@@ -56,3 +72,4 @@ function paragraphTranslator(paragraph) {
 
 
 console.log(paragraphTranslator("'Call me Ishmael. Some years ago - never mind how long precisely - having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen, and regulating circulation'"));
+*/
