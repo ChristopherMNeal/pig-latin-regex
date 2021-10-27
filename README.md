@@ -14,7 +14,7 @@ Expected Output: "at-cay"
 
 Test: "It returns a word with the consonants including 'qu' at the end plus -ay from a single word beginning with consonants including 'qu.'"
 Code: pigLatinTranslator ("squeal")
-Expected Output: "eal-say"
+Expected Output: "eal-squay"
 
 Test: "It returns an empty string if there is no input."
 Code: pigLatinTranslator("")
