@@ -38,7 +38,3 @@ Describe: paragraphTranslator()
 Test: "It returns a string of words all following previous Pig Latin rules."
 Code: pigLatinTranslator("Cats squeal")
 Expected Output: "at-cays eal-squay"
-
-Test: "It returns a string following previous Pig Latin rules leaving punctuation intact."
-Code: pigLatinRules("Cats meow.")
-Expected Output: "ats-cay eow-may."

@@ -24,14 +24,9 @@ function pigLatinTranslator(word) {
         break;
     }
   }
-
-  console.log(beforePunctuation);
-  console.log(afterPunctuation);
-  console.log(modWordArray);
   
   if (vowelArray.includes(modWordArray[0])) {
     pigLatinString = modWordArray.slice(0, modWordArray.length).join("") + "-way";
-    console.log(modWordArray);
   } else {
   for (let i = 0; i < modWordArray.length; i++) {
     if (vowelArray.includes(modWordArray[i])) {
@@ -50,4 +45,14 @@ function pigLatinTranslator(word) {
   return pigLatinString;
 }
 
-console.log(pigLatinTranslator("##squab##"));
+function paragraphTranslator(paragraph) {
+  const paragraphArray = paragraph.split(" ");
+  const translatedParagraph = []
+  paragraphArray.forEach(function(word) {
+    translatedParagraph.push(pigLatinTranslator(word))
+  })
+  return translatedParagraph.join(" ");
+}
+
+
+console.log(paragraphTranslator("'Call me Ishmael. Some years ago - never mind how long precisely - having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen, and regulating circulation'"));
