@@ -1,16 +1,27 @@
 function pigLatinTranslator(word) {
   let pigLatin = ""
   let firstVowelRegex = new RegExp("^[aeiou]", "i");
-  let firstConsanantRegex = new RegExp("^[^aeiou]+", "i")
+  let quRegex = new RegExp ("^[^aeiou]*(qu)?[^aeiou]*", "i");
+  let uRegex = new RegExp ("u", "i")
   if (word.match(firstVowelRegex)) {
     pigLatin = word + "-way"
   } else {
-    let consonants = word.match(firstConsanantRegex)
-    let tempWord = word.replace(firstConsanantRegex, "")
-    pigLatin = tempWord + "-" + consonants + "ay"
+    let consanants = word.match(quRegex).join('')
+    let tempWord = word.replace(quRegex, "")
+    if (consanants[consanants.length-1] === "q" && tempWord[0] === "u"){
+      consanants = consanants[0] + "u" + consanants[]
+      tempWord = tempWord.replace(uRegex, "")
+    }
+    console.log(consanants);
+    console.log(tempWord);
+    pigLatin = tempWord + "-" + consanants + "ay"
   }
   return pigLatin
 }
+
+let testStr = "Pumpkin";
+let testRegex = /P(engu|umpk)in/;
+console.log(testStr.match(testRegex));
 
 
 /*
